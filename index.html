@@ -260,6 +260,19 @@
             border-radius: 2px;
         }
 
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: -2rem auto 3.5rem auto;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .section-description strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
         /* About Section */
         .about-content {
             display: flex;
@@ -399,35 +412,40 @@
             box-shadow: 0 6px 15px rgba(46, 125, 50, 0.4);
         }
 
-        /* Contact Section */
+        /* Contact Section (Updated - Centered Without Form) */
         .contact-container {
-            display: flex;
-            gap: 3rem;
-            background: var(--card-bg);
+            max-width: 700px; /* Centered card width */
+            margin: 0 auto;
+            background: var(--primary-green);
             border-radius: 15px;
             box-shadow: var(--shadow-md);
             overflow: hidden;
             border: 1px solid var(--border-color);
+            text-align: center;
         }
 
         .contact-info {
-            flex: 1;
-            background: var(--primary-green);
             color: white;
-            padding: 3rem;
+            padding: 3.5rem;
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: inline-block; /* Helps center the block while keeping text aligned */
+            text-align: left;
             margin-bottom: 1.5rem;
         }
 
-        .contact-info p {
+        .contact-details p {
             margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 15px;
         }
 
         .contact-info a {
@@ -440,54 +458,10 @@
             color: var(--accent);
         }
 
-        .contact-form {
-            flex: 1.2;
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: var(--card-bg);
-        }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            background-color: var(--input-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
-        }
-
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .contact-form button {
-            background: var(--primary-green);
-            color: white;
-            border: none;
-            padding: 15px;
-            font-size: 1.1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .contact-form button:hover {
-            background: var(--primary-green-hover);
+        .contact-footer-note {
+            margin-top: 2rem;
+            font-size: 1.05rem;
+            opacity: 0.9;
         }
 
         /* Footer */
@@ -510,11 +484,8 @@
 
         /* Mobile & Tablet Responsive Design */
         @media (max-width: 900px) {
-            .about-content, .contact-container {
+            .about-content {
                 flex-direction: column;
-            }
-            .contact-info, .contact-form {
-                padding: 2rem;
             }
         }
 
@@ -565,6 +536,15 @@
 
             section {
                 padding: 4rem 5%;
+            }
+            
+            .section-description {
+                margin-top: -1.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .contact-info {
+                padding: 2.5rem 1.5rem;
             }
         }
     </style>
@@ -642,9 +622,12 @@
         </section>
     </div>
 
-    <!-- Farm Locations Section (Updated Names) -->
+    <!-- Farm Locations Section -->
     <section id="locations">
         <h2 class="section-title">Our Farm Locations</h2>
+        <p class="section-description">
+            Our farms are ideally situated with an exact straight-line distance of just <strong>10 to 13 kilometers from Amaravati</strong>, seamlessly blending close proximity to the capital region with the pristine, fertile environment of the Krishna River basin.
+        </p>
         <div class="locations-container">
             <div class="location-card">
                 <div class="location-icon">📍</div>
@@ -685,34 +668,20 @@
         <div class="contact-container">
             <div class="contact-info">
                 <h3>Visit Our Office</h3>
-                <p>
-                    📍 <span><strong>Newtons Agriculture</strong><br> Veladikothapalem<br> Near Krishna River<br> Andhra Pradesh - 521182, India</span>
-                </p>
-                <p>
-                    📞 <span><a href="tel:+916363111328">+91 63631 11328</a></span>
-                </p>
-                <p>
-                    ✉️ <span><a href="mailto:shiva@newtons.in">shiva@newtons.in</a></span>
-                </p>
-                <br>
-                <p><em>Drop by our office near the river banks to discuss how we can grow together!</em></p>
-            </div>
-            <div class="contact-form">
-                <form action="mailto:shiva@newtons.in" method="POST" enctype="text/plain">
-                    <div class="input-group">
-                        <input type="text" name="Name" placeholder="Your Full Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="email" name="Email" placeholder="Your Email Address" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="Subject" placeholder="Subject" required>
-                    </div>
-                    <div class="input-group">
-                        <textarea name="Message" placeholder="How can we help you?" required></textarea>
-                    </div>
-                    <button type="submit">Send Message</button>
-                </form>
+                
+                <div class="contact-details">
+                    <p>
+                        📍 <span><strong>Newtons Agriculture</strong><br> Veladikothapalem<br> Near Krishna River<br> Andhra Pradesh - 521182, India</span>
+                    </p>
+                    <p>
+                        📞 <span><a href="tel:+916363111328">+91 63631 11328</a></span>
+                    </p>
+                    <p>
+                        ✉️ <span><a href="mailto:shiva@newtons.in">shiva@newtons.in</a></span>
+                    </p>
+                </div>
+                
+                <p class="contact-footer-note"><em>Drop by our office near the river banks to discuss how we can grow together!</em></p>
             </div>
         </div>
     </section>
